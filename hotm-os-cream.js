@@ -85,7 +85,7 @@ if ((current_address == hotm_os_collection) || current_address.startsWith(hotm_o
 function getHumanListed(single){
    let container = single.lastChild;
    let text = container.innerText;
-   let id = text.split("#")[1];
+   let id = text.split("#")[1]||"";
    let url = api_url + id;
 
    if (((id || "").includes("$")) || id == null ){
@@ -95,14 +95,15 @@ function getHumanListed(single){
             return response.json();
         })
         .then((data) => {
-            let job = data['job'];
-
-            // hardcoded shortener so UI doesn't break on too long names
-            if (job.includes("Human Resources Specialist")){
-                job = "HR Specialist";
+            // another check after promise resolved
+            if (((id || "").includes("$")) || id == null ){} else {
+                let job = data['job'];
+                // hardcoded shortener so UI doesn't break on too long names
+                if (job.includes("Human Resources Specialist")){
+                    job = "HR Specialist";
+                }
+                container.append(job + ": " + data['unclaimed'] + "$hotm");
             }
-
-            container.append(job + ": " + data['unclaimed'] + "$hotm");
         })
         .catch((error) => {
           // console.log(error)
@@ -138,7 +139,7 @@ function getHuman(article){
             }
         })
         .catch((error) => {
-          // console.log(error)
+           console.log(error)
         })
      }
 }
