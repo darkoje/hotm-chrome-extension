@@ -39,7 +39,7 @@ if (current_address.startsWith(hotm_os_assets)){
         below_title.append(job + ": " + data['unclaimed'] + " $hotm");
     })
     .catch((error) => {
-       // console.log(error)
+       console.log(error)
     })
 }
 
