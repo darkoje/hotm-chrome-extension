@@ -175,9 +175,9 @@ clickElement.addEventListener("click", async () => {
 document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('atoggle');
     link.addEventListener('click', function() {
-        let tuga = document.getElementById('atoggle');
-        if (tuga.innerText == "*") {
-          tuga.style.display = "block";
+        let notice = document.getElementById('atoggle');
+        if (notice.innerText == "*") {
+          notice.style.display = "block";
           document.getElementById("inputForm").style.display = "table";
           document.getElementById("atoggle").textContent = "* Warning, one user install per serial allowed!";
           document.getElementById("atoggle").style.fontWeight = "450";
