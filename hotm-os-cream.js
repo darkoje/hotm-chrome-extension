@@ -130,7 +130,7 @@ function getHumanListed(single){
 // process collection item
 function getHuman(article){
 
-    let name = article.getElementsByClassName("AssetCardFooter--name")[0];
+    let name = article.getElementsByClassName("AssetCardFooter--name")[0]||"";
     let id = name.innerHTML.split("#")[1]||"";
     let url = api_url + id;
 
