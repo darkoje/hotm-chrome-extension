@@ -1,6 +1,6 @@
 
-const hotm_os_assets = "https://opensea.io/assets/0x8a9ece9d8806eb0cde56ac89ccb23a36e2c718cf/";
 const api_url = "https://api.kriptorog.org/hotm/";
+const hotm_os_assets = "https://opensea.io/assets/0x8a9ece9d8806eb0cde56ac89ccb23a36e2c718cf/";
 const hotm_os_collection = "https://opensea.io/collection/humans-metaverse";
 const current_address = document.URL;
 var scroll_position = document.documentElement.scrollTop;
