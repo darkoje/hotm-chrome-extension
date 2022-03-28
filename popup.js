@@ -67,10 +67,12 @@ function checkSerial(serial){
             document.getElementById("activationStatus").textContent="expired";
             saveError("errOOr");
         } else if (!data){
-            document.getElementById("message").textContent = "are you using the correct serial?";
+            document.getElementById("message").textContent = "wrong serial number";
+            document.getElementById("message").style.color = "red";
             document.getElementById("keyStatus").textContent = "wrong";
             document.getElementById("inputForm").style.display = "table";
             document.getElementById("activationStatus").textContent="not licensed";
+            document.getElementById("atoggle").textContent="* wrong serial number";
             saveError("errOOr");
         } else {
             document.getElementById("message").textContent = "that's weird";
@@ -141,8 +143,13 @@ function checkLicense(serial){
                     chrome.storage.sync.set({"hotm-error": "err00r"}, function() {});
                } else if (data==""){
                     document.getElementById("message").textContent = "used elsewhere";
+                    document.getElementById("message").style.color = "red";
                     document.getElementById("activationStatus").textContent = "not licensed";
                     document.getElementById("inputForm").style.display = "table";
+                    document.getElementById("atoggle").style.display = "table";
+                    document.getElementById("atoggle").textContent = "* activated by another instance";
+                    document.getElementById("atoggle").style.color = "red";
+
                     chrome.storage.sync.set({"hotm-error": "errOOr"}, function() {});
                }
             }).catch((error) => {
@@ -172,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (tuga.innerText == "*") {
           tuga.style.display = "block";
           document.getElementById("inputForm").style.display = "table";
-          document.getElementById("atoggle").textContent = "* Be careful, only one serial per instace allowed!";
+          document.getElementById("atoggle").textContent = "* Warning, one user install per serial allowed!";
           document.getElementById("atoggle").style.fontWeight = "450";
           document.getElementById("atoggle").style.color = "red";
         } else {

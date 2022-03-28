@@ -131,7 +131,7 @@ function getHumanListed(single){
 function getHuman(article){
 
     let name = article.getElementsByClassName("AssetCardFooter--name")[0];
-    let id = name.innerHTML.split("#")[1];
+    let id = name.innerHTML.split("#")[1]||"";
     let url = api_url + id;
 
     if (((article.innerText || "").includes("$")) || id == null ){
