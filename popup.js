@@ -41,11 +41,10 @@ function generateActivationCode(length){
     return activation_code;
 }
 
-// API CHECK SERIAL
+// CHECK SERIAL API
 function checkSerial(serial){
     let enc_serial = encipher(serial);
     let endpoint = API_SERVER + "checkserial.php?monty=" + enc_serial;
-
     fetch(endpoint)
     .then((response) => {
         return response.text();
@@ -88,7 +87,7 @@ function checkSerial(serial){
 
 }
 
-// API ACTIVATE LICENSE
+// ACTIVATE LICENSE API
 function activateLicense(serial){
 
     chrome.storage.sync.get(["hotm-license"], function(result) {
@@ -117,7 +116,7 @@ function activateLicense(serial){
     });
 }
 
-// API CHECK LICENSE
+// CHECK LICENSE API
 function checkLicense(serial){
     chrome.storage.sync.get(["hotm-license"], function(result) {
         let activation_code = result["hotm-license"];
@@ -161,11 +160,9 @@ function checkLicense(serial){
     });
 }
 
-// BUTTON CLICK EVENT LISTENER
-clickElement.addEventListener("click", async () => {
-
+// NEW SERIAL SUBMIT EVENT LISTENER
+submitSerialButton.addEventListener("click", async () => {
   let registrationKey = encodeURI(document.getElementById("regkey").value);
-
   document.getElementById("submittedSerial").textContent = registrationKey;
   saveSerial(registrationKey);
   checkSerial(registrationKey);
@@ -201,42 +198,4 @@ chrome.storage.sync.get(["hotm-serial"], function(result) {
         document.getElementById("submittedSerial").textContent = value;
         checkSerial(value);
     }
-})
-
-
-// DEV STUFF BELLOW
-// tbd: prevent xss injection attacks on input box
-// tbd: ask user for confirmation on serial activation
-////// SOME FETCH CHAINING MAGIC
-//function justForPresentation(){
-//    fetch(url)
-//    .then(function(response) {
-//      return response.json()
-//    })
-//    .then(function(data) {
-//      // do stuff with `data`, call second `fetch`
-//      return fetch(data.anotherUrl)
-//    })
-//    .then(function(response) {
-//      return response.json();
-//    })
-//    .then(function(data) {
-//      // do stuff with `data`
-//    })
-//    .catch(function(error) {
-//      console.log('Requestfailed', error)
-//    });
-//}
-// INJECT SCRIPT IN CURRENT PAGE
-// THIS FUNCTION WILL BE RUN ON THE ACTIVE TAB PAGE SUCH AS OPENSEA
-//function injectToCurrentPage() {
-//    // document.body.textContent = "blank";
-//    console.log('Im here');
-//}
-//
-//  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  // CALL FUNCTION THAT WILL EXECUTE SCRIPT ON CURRENT TAB PAGE
-//  chrome.scripting.executeScript({
-//    target: { tabId: tab.id },
-//    function: injectToCurrentPage,
-//  });
+});

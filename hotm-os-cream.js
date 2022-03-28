@@ -166,7 +166,7 @@ function getHuman(article){
 chrome.storage.sync.get(["hotm-error"], function(result) {
     let value = result["hotm-error"];
     if (value=="err00r"){runExtension();}
-})
+});
 
 // listener for errors
 chrome.storage.onChanged.addListener(function (changes, namespace) {
