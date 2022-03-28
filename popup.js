@@ -157,11 +157,7 @@ function checkLicense(serial){
 // BUTTON CLICK EVENT LISTENER
 clickElement.addEventListener("click", async () => {
 
-  // prevent XSS injection attacks
-  function preventXSSHtml(str){return String(str).replace(/[^\w. ]/gi, function(c){return '&#'+c.charCodeAt(0)+';';});}
-  function preventXSSJs(str){return String(str).replace(/[^\w. ]/gi, function(c){return '\\u'+('0000'+c.charCodeAt(0).toString(16)).slice(-4);});}
-  function preventXSS(str){return preventXSSJs(preventXSSHtml(str));}
-  let registrationKey = preventXSS(document.getElementById("regkey").value);
+  let registrationKey = encodeURI(document.getElementById("regkey").value);
 
   document.getElementById("submittedSerial").textContent = registrationKey;
   saveSerial(registrationKey);
