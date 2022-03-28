@@ -2,13 +2,19 @@
 
   "manifest_version": 3,
   "name": "HOTM OS extension",
-  "description": "Unofficial extension for Humans Metaverse NFT collection on OpenSea. Extension displays human's job and unclaimed salary on OpenSea. Developed by Human Scoop.",
+  "description": "Unofficial extension for Humans Metaverse NFT collection on OpenSea. Shows each HOTM's job and unclaimed salary. Developed by Human Scoop.",
   "version": "1.0",
 
   "permissions": [
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "scripting",
+    "storage"
   ],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
 
   "icons": { "16": "16.png",
            "48": "48.png",
