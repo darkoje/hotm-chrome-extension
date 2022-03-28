@@ -88,22 +88,31 @@ function checkSerial(serial){
 
 // API ACTIVATE LICENSE
 function activateLicense(serial){
-    let license_key = generateActivationCode(14);
-    let enc_serial = encipher(serial);
-    let enc_license = encipher(license_key);
 
-    saveLicenseKey(license_key);
-    saveSerial(serial);
-    chrome.storage.sync.set({"hotm-error": "err00r"}, function() {});
+    chrome.storage.sync.get(["hotm-license"], function(result) {
+        let activation_code = result["hotm-license"];
+        let license_key;
+        if (activation_code==null){
+            license_key = generateActivationCode(14);
+        } else {
+            license_key = activation_code;
+        }
+        let enc_serial = encipher(serial);
+        let enc_license = encipher(license_key);
 
-    let endpoint = API_SERVER + "activate.php?monty=" + enc_serial + "&python=" + enc_license
-    fetch(endpoint).then((response) => {return response.text();}).then((data) => {
-        document.getElementById("message").textContent = "checking license...";
-        checkLicense(serial);
-    }).catch((error) => {
-        document.getElementById("message").textContent = "problem connecting to api server";
-        document.getElementById("activationStatus").textContent = "problem";
-    })
+        saveLicenseKey(license_key);
+        saveSerial(serial);
+        chrome.storage.sync.set({"hotm-error": "err00r"}, function() {});
+
+        let endpoint = API_SERVER + "activate.php?monty=" + enc_serial + "&python=" + enc_license;
+        fetch(endpoint).then((response) => {return response.text();}).then((data) => {
+            document.getElementById("message").textContent = "checking license...";
+            checkLicense(serial);
+        }).catch((error) => {
+            document.getElementById("message").textContent = "problem connecting to api server";
+            document.getElementById("activationStatus").textContent = "problem";
+        })
+    });
 }
 
 // API CHECK LICENSE
@@ -121,8 +130,6 @@ function checkLicense(serial){
             let endpoint = API_SERVER + "checklicense.php?monty=" + enc_serial + "&python=" + enc_activation_code;
             fetch(endpoint).then((response) => {return response.text();}).then((data) => {
                if (data=="activated"){
-                    // old version
-               } else if(data.includes("more")) {
                     document.getElementById("message").textContent = "License ok";
                     document.getElementById("message").style.fontWeight = "bold";
                     document.getElementById("message").style.color = "seagreen";
