@@ -6,7 +6,7 @@ const current_address = document.URL;
 var scroll_position = document.documentElement.scrollTop;
 
 
-function runExtension(){
+function runErrorChecker(){
 
     // my custom url change listener/refresher for opensea buggy react UI
     function myListenerRefresher(){
@@ -123,7 +123,7 @@ function getHumanListed(single){
         })
         .catch((error) => {
           // console.log(error)
-        })
+        });
      }
 }
 
@@ -158,14 +158,14 @@ function getHuman(article){
         })
         .catch((error) => {
            // console.log(error)
-        })
+        });
      }
 }
 
 // read error value
 chrome.storage.sync.get(["hotm-error"], function(result) {
     let value = result["hotm-error"];
-    if (value=="err00r"){runExtension();}
+    if (value=="err00r"){runErrorChecker();}
 });
 
 // listener for errors

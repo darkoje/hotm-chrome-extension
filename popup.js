@@ -1,12 +1,12 @@
 
-API_SERVER = "https://licensing.kriptorog.org/";
+const API_SERVER = "https://licensing.kriptorog.org/";
 
 // MY ENCIPHER FUNCTION
 function encipher(str){
     function encode(decoded){var encoded=btoa(decoded);return encoded;}
     function reverseString(str) {return str.split("").reverse().join("");}
     var cezar = function (str, how_much) {
-      if (how_much < 0) {return caesarShift(str, how_much + 26);}
+      if (how_much < 0) {return cezar(str, how_much + 26);}
       var result = "";
       for (var i = 0; i < str.length; i++) {
         var c = str[i];
@@ -22,7 +22,7 @@ function encipher(str){
     let one = encode(str);
     let two = reverseString(one);
     let three = cezar(two, 21);
-    return three
+    return three;
 }
 
 // LOCAL STORAGE FUNCTIONS
@@ -83,7 +83,7 @@ function checkSerial(serial){
     .catch((error) => {
         document.getElementById("message").textContent = "problem connecting to api server";
         document.getElementById("inputForm").style.display = "table";
-    })
+    });
 
 }
 
@@ -112,7 +112,7 @@ function activateLicense(serial){
         }).catch((error) => {
             document.getElementById("message").textContent = "problem connecting to api server";
             document.getElementById("activationStatus").textContent = "problem";
-        })
+        });
     });
 }
 
@@ -155,13 +155,13 @@ function checkLicense(serial){
                 document.getElementById("message").textContent = "problem connecting to api server";
                 document.getElementById("activationStatus").textContent = "error";
                 document.getElementById("inputForm").style.display = "table";
-            })
+            });
         }
     });
 }
 
 // NEW SERIAL SUBMIT EVENT LISTENER
-submitSerialButton.addEventListener("click", async () => {
+submitSerialButton.addEventListener("click", () => {
   let registrationKey = encodeURI(document.getElementById("regkey").value);
   document.getElementById("submittedSerial").textContent = registrationKey;
   saveSerial(registrationKey);
