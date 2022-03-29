@@ -1,4 +1,7 @@
 
+/* jshint esversion: 6 */
+/* globals chrome */
+
 const API_SERVER = "https://licensing.kriptorog.org/";
 
 // MY ENCIPHER FUNCTION
