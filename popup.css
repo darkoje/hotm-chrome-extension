@@ -11,11 +11,6 @@ button {
   background: lightblue;
 }
 button:hover {
-  height: 30px;
-  width: 60px;
-  outline: none;
-  border: none;
-  border-radius: 16px;
   background: pink;
   cursor:pointer;
 }

@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-  <head>
-    <link rel="stylesheet" href="popup.css">
-  </head>
+<head>
+  <title>HOTM OS plugin by Scoop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
 
-  <body>
+<body>
 
-    <div id="inputForm" class="oneLinerContainer" style="display:none;">
-      <div class="oneLiner">
-        <input type="text" id="regkey" placeholder="Input serial">
-      </div>
-      <button id="submitSerialButton">Activate</button>
+  <div id="inputForm" class="oneLinerContainer" style="display:none;">
+    <div class="oneLiner">
+      <input type="text" id="regkey" placeholder="Input serial">
     </div>
+    <button id="submitSerialButton">Activate</button>
+  </div>
 
-    <div id="message"></div>
-    <div>My serial: <span id="submittedSerial"></span></div>
-    <div>Serial status: <span id="keyStatus">Unregistered</span></div>
-    <div>License status: <span id="activationStatus">Unregistered</span></div>
-    <span id="atoggle" style="display:none;" title="change serial">*</span>
-    <script src="popup.js"></script>
+  <div id="message"></div>
+  <div>My serial: <span id="submittedSerial"></span></div>
+  <div>Serial status: <span id="keyStatus">Unregistered</span></div>
+  <div>License status: <span id="activationStatus">Unregistered</span></div>
+  <span id="atoggle" style="display:none;" title="change serial">*</span>
+  <script src="popup.js"></script>
 
-  </body>
+</body>
 
 </html>
