@@ -1,15 +1,28 @@
+body {
+    font-family: Montserrat, sans-serif;
+    color: #1a1b1f;
+    font-size: 13px;
+
+    font-weight: 400;
+}
+
 div {min-width:200px;}
 div.oneLinerContainer { display: table; padding-bottom:5px;}
 div.oneLiner { display: table-cell; width: 100%; }
 
 button {
   height: 30px;
-  width: 60px;
+  width: 65px;
   outline: none;
-  border: none;
   border-radius: 15px;
   background: lightblue;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  font-weight: 700;
+
 }
+
 button:hover {
   background: pink;
   cursor:pointer;
