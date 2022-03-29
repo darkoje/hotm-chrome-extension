@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>{{id}}</title>
+</head>
+
+<body>
+
+<img src="{{image}}" width="200">
+
+<h1>{{name}}</h1>
+
+
+<h2>Traits ({{ attributes|length }})</h2>
+
+{% for attribute in attributes %}
+
+	{{attribute.trait_type}}: {{attribute.value}}
+	
+	<br>
+
+{% endfor %}
+
+<br><br>
+
+<a href="https://api.kriptorog.org/uri/{{contract}}/{{id|add:"-1"}}">
+	Previous
+</a> | 
+<a href="https://api.kriptorog.org/uri/{{contract}}/{{id|add:"+1"}}">
+	Next
+</a>
+
+</body>
