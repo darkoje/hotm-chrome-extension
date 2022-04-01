@@ -2,25 +2,68 @@
 <html lang="en">
 
 <head>
-  <title>HOTM OS plugin by Scoop</title>
-  <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup.css">
+    <link href="font-montserrat.css?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <div id="inputForm" class="oneLinerContainer" style="display:none;">
-    <div class="oneLiner">
-      <input type="text" id="regkey" placeholder="Input serial">
-    </div>
-    <button id="submitSerialButton">Activate</button>
-  </div>
+    <div class="container-css">
 
-  <div id="message"></div>
-  <div>My serial: <span id="submittedSerial"></span></div>
-  <div>Serial status: <span id="keyStatus">Unregistered</span></div>
-  <div>License status: <span id="activationStatus">Unregistered</span></div>
-  <span id="atoggle" style="display:none;" title="change serial">*</span>
-  <script src="popup.js"></script>
+        <!--HEADER-->
+        <div class="header">
+            <img src="128.png" alt="" class="header__logo" id="logo">
+            <h1 class="header__title">HOTM OS plugin</h1>
+            <p class="header__subtitle">by Human Scoop</p>
+        </div>
+
+        <!--MESSAGE-->
+        <div class="alert">
+            <p class="row__cutation bold" id="message" style="color:black;">
+                GM! Serial number can only be used on single browser!
+            </p>
+        </div>
+
+        <!--INPUT FORM-->
+        <div id="inputForm">
+            <form>
+                <input type="text" id="regkey" placeholder="input serial"/>
+            </form>
+
+            <button id="submitSerialButton">Activate</button>
+        </div>
+
+        <!--LICENSE STATUS -->
+        <section class="section">
+
+            <div class="section__row">
+                <p class="row__license bold">License:</p>
+                <div class="section__wrapper">
+                    <img src="200.svg" alt="" class="check" width="20" id="allGood" style="display:none;">
+                    <img src="403.svg" alt="" class="check" width="20" id="notGood" style="display:block;">
+                </div>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Serial:</p>
+                <span id="submittedSerial">none</span>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Serial status:</p>
+                <p class="row__value" id="keyStatus">activated</p>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Activation status:</p>
+                <p class="row__value" id="activationStatus">Unregistered</p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="popup.js"></script>
 
 </body>
 
