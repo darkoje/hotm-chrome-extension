@@ -1,6 +1,5 @@
-/* jshint esversion: 6 */
-/* globals chrome */
 
+// MY LICENSING API ENDPOINT
 const API_SERVER = "https://licensing.kriptorog.org/";
 
 // MY ENCIPHER FUNCTION
@@ -155,7 +154,7 @@ function checkLicense(serial){
 
 // NEW SERIAL SUBMIT EVENT LISTENER
 submitSerialButton.addEventListener("click", () => {
-  let registrationKey = encodeURI(document.getElementById("regkey").value);
+  let registrationKey = encodeURI(document.getElementById("keyInput").value);
   document.getElementById("submittedSerial").textContent = registrationKey;
   saveSerial(registrationKey);
   checkSerial(registrationKey);
@@ -183,6 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             document.getElementById("inputForm").style.display = "none";
         }
-        document.getElementById("regkey").placeholder = "input another serial*";
+        document.getElementById("keyInput").placeholder = "input another serial*";
     });
 });
