@@ -177,7 +177,7 @@ chrome.storage.sync.get(["hotm-serial"], function(result) {
 document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('logo');
     link.addEventListener('click', function() {
-        let inputForm_display = document.getElementById("inputForm").style.display
+        let inputForm_display = document.getElementById("inputForm").style.display;
         if (inputForm_display == "none") {
             document.getElementById("inputForm").style.display = "table";
         } else {
