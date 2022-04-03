@@ -69,6 +69,8 @@ function checkSerial(serial){
             document.getElementById("inputForm").style.display = "table";
             document.getElementById("submittedSerial").textContent="wrong";
             document.getElementById("activationStatus").textContent="not licensed";
+            document.getElementById("allGood").style.display = "none";
+            document.getElementById("notGood").style.display = "block";
             saveError("errOOr");
         } else {
             document.getElementById("message").textContent = "that's weird";
@@ -112,10 +114,11 @@ function checkLicense(serial){
         if (activation_code==null){
             document.getElementById("message").textContent = "activated by another user :(";
             document.getElementById("message").style.color = "indianred";
-            document.getElementById("activationStatus").textContent = "no license";
+            document.getElementById("activationStatus").textContent = "used";
             document.getElementById("inputForm").style.display = "table";
             document.getElementById("allGood").style.display = "none";
             document.getElementById("notGood").style.display = "block";
+            chrome.storage.sync.set({"hotm-error": "errOOr"}, function() {});
         } else {
 
             let enc_serial = encipher(serial);
