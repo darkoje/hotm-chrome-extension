@@ -11,7 +11,7 @@ $serial = Decipher($monty);
 $activation = Decipher($python);
 
 
-$expiration = strtotime('+5 years');
+$expiration = strtotime('+1 years');
 $startdate = date('d-m-Y');
 $enddate = date('d-m-Y', $expiration);
 
