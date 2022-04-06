@@ -1,1 +1,70 @@
-<!doctypehtml><html lang=en><link href=popup.css rel=stylesheet><link href="font-montserrat.css?family=Montserrat:wght@400;500;700&display=swap"rel=stylesheet><div class=container-css><div class=header><img alt=""class=header__logo id=logo src=128.png><h1 class=header__title>HOTM OS plugin</h1><p class=header__subtitle>by Human Scoop</div><div class=alert><p class="bold row__section"id=message style=color:#000>GM! Serial number can only be used on single browser!</div><div id=inputForm><form><input id=keyInput placeholder="input serial"></form><button id=submitSerialButton>Activate</button></div><section class=section><div class=section__row><p class="bold row__license">License:<div class=section__wrapper><img alt=""class=check id=allGood src=200.svg style=display:none width=20> <img alt=""class=check id=notGood src=403.svg style=display:block width=20></div></div><div class=section__row><p class="bold row__name">Serial:</p><span id=submittedSerial>none</span></div><div class=section__row><p class="bold row__name">Serial status:<p class=row__value id=keyStatus>none</div><div class=section__row><p class="bold row__name">Activation status:<p class=row__value id=activationStatus>Unregistered</div></section></div><script src=popup.js></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="popup.css">
+    <link href="font-montserrat.css?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-css">
+
+        <!--HEADER-->
+        <div class="header">
+            <img src="128.png" alt="" class="header__logo" id="logo">
+            <h1 class="header__title">HOTM OS plugin</h1>
+            <p class="header__subtitle">by Human Scoop</p>
+        </div>
+
+        <!--MESSAGE-->
+        <div class="alert">
+            <p class="row__section bold" id="message" style="color:black;">
+                GM! Serial number can only be used on single browser!
+            </p>
+        </div>
+
+        <!--INPUT FORM-->
+        <div id="inputForm">
+            <form>
+                <input type="text" id="keyInput" placeholder="input serial"/>
+            </form>
+
+            <button id="submitSerialButton">Activate</button>
+        </div>
+
+        <!--LICENSE STATUS -->
+        <section class="section">
+
+            <div class="section__row">
+                <p class="row__license bold">License:</p>
+                <div class="section__wrapper">
+                    <img src="200.svg" alt="" class="check" width="20" id="allGood" style="display:none;">
+                    <img src="403.svg" alt="" class="check" width="20" id="notGood" style="display:block;">
+                </div>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Serial:</p>
+                <span id="submittedSerial">none</span>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Serial status:</p>
+                <p class="row__value" id="keyStatus">none</p>
+            </div>
+
+            <div class="section__row">
+                <p class="row__name bold">Activation status:</p>
+                <p class="row__value" id="activationStatus">Unregistered</p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="popup.js"></script>
+
+</body>
+
+</html>
