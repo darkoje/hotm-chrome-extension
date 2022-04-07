@@ -3,10 +3,9 @@
   "manifest_version": 3,
   "name": "HOTM OS extension",
   "description": "Private extension for Humans Metaverse NFT collection on OpenSea. Shows each HOTM's job and unclaimed salary. Developed by Scoop.",
-  "version": "1.0.2",
+  "version": "1.0.3",
 
   "permissions": [
-    "scripting",
     "storage"
   ],
 

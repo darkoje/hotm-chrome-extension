@@ -1,7 +1,4 @@
 
-/* jshint esversion: 6 */
-/* globals chrome */
-
 const api_url = "https://api.kriptorog.org/hotm/";
 const hotm_os_assets = "https://opensea.io/assets/0x8a9ece9d8806eb0cde56ac89ccb23a36e2c718cf/";
 const hotm_os_collection = "https://opensea.io/collection/humans-metaverse";
@@ -39,7 +36,6 @@ function runErrorChecker(){
             return response.json();
         })
         .then((data) => {
-            //let job = data['job'];
             let job = data.job;
 
             // hardcoded shortener so UI doesn't break on too long names
@@ -49,7 +45,6 @@ function runErrorChecker(){
             if (job.includes("Climate Change Analyst")){
                 job = "Climate Analyst";
             }
-            //below_title.append(job + ": " + data['unclaimed'] + " $hotm");
             below_title.append(job + ": " + data.unclaimed + " $hotm");
         })
         .catch((error) => {
@@ -116,7 +111,6 @@ function getHumanListed(single){
         })
         .then((data) => {
             if (((id || "").includes("$")) || id == null ){} else {
-                //let job = data['job'];
                 let job = data.job;
 
                 if (job.includes("Human Resources Specialist")){
@@ -125,7 +119,6 @@ function getHumanListed(single){
                 if (job.includes("Climate Change Analyst")){
                     job = "Climate Analyst";
                 }
-                //container.append(job + ": " + data['unclaimed'] + "$hotm");
                 container.append(job + ": " + data.unclaimed + "$hotm");
             }
         })
@@ -153,7 +146,6 @@ function getHuman(article){
 
             if (((article.innerText || "").includes("$")) || id == null ){
             }else{
-                //let job = data['job'];
                 let job = data.job;
 
                 if (job.includes("Human Resources Specialist")){
@@ -162,7 +154,6 @@ function getHuman(article){
                 if (job.includes("Climate Change Analyst")){
                     job = "Climate Analyst";
                 }
-                //article.prepend(data['unclaimed'] + " $hotm");
                 article.prepend(data.unclaimed + " $hotm");
                 article.append(job);
             }
@@ -185,4 +176,3 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
     if (key=='hotm-error'){location.reload();}
   }
 });
-
